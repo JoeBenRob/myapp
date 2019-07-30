@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import User from './User/User';
+import Time from './Time/Time';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <div>
+        <div className="App">
+          <p>This is the app Component</p>
+          <User onRender={() => this.whenSubComponentRender()} />
+          <p>This is the time, press the button to update <Time /></p>
+        </div>
+      </div>
+    );
+  }
+
+  whenSubComponentRender() {
+    console.log('sub component rendered');
+  }
+
 }
 
 export default App;
